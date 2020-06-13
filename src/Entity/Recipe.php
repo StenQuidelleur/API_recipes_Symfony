@@ -41,6 +41,11 @@ class Recipe
      */
     private $ingredient;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
+
     public function __construct()
     {
         $this->ingredient = new ArrayCollection();
@@ -97,6 +102,18 @@ class Recipe
         if ($this->ingredient->contains($ingredient)) {
             $this->ingredient->removeElement($ingredient);
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
