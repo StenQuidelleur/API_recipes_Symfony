@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ingredient{% endblock %}
+
+{% block body %}
+    <h1>Create new Ingredient</h1>
+    <div class="col-6">
+    {{ include('ingredient/_form.html.twig') }}
+    <a href="{{ path('recipe_new') }}" class="btn btn-info mt-2">back to new recipe</a>
+    </div>
+{% endblock %}

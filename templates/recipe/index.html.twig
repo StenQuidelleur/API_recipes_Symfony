@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipe index{% endblock %}
+
+{% block body %}
+    <h1>Recipes</h1>
+    <div class="row justify-content-center">
+        {% for recipe in recipes %}
+        <div class="card mx-3 mt-4" style="width: 18rem;">
+            <img src="{{ recipe.picture }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.subtitle }}</p>
+                <a href="{{ path('recipe_show', {'id': recipe.id}) }}" class="btn btn-primary">Show</a>
+                <a href="{{ path('recipe_edit', {'id': recipe.id}) }}" class="btn btn-primary">Edit</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a class="btn btn-info mt-4" href="{{ path('recipe_new') }}">Create new</a>
+{% endblock %}
